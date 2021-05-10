@@ -108,10 +108,10 @@ RUN apk del --purge deps1 deps2 && \
 RUN cd /usr/local/etc \
  && sed -i -e 's/\(uid.*=.*\)/uid = "root"/g' owntone.conf \
  && sed -i s#"ipv6 = yes"#"ipv6 = no"#g owntone.conf \
- && sed -i s#/srv/music#/config/forked-daapd/music#g owntone.conf \
- && sed -i s#/usr/local/var/cache/forked-daapd/songs3.db#/config/forked-daapd/cache/songs3.db#g owntone.conf \
- && sed -i s#/usr/local/var/cache/forked-daapd/cache.db#/config/forked-daapd/cache/cache.db#g owntone.conf \
- && sed -i s#/usr/local/var/log/forked-daapd.log#/dev/stdout#g owntone.conf \
+ && sed -i s#/srv/music#/config/owntone/music#g owntone.conf \
+ && sed -i s#/usr/local/var/cache/owntone/songs3.db#/config/owntone/cache/songs3.db#g owntone.conf \
+ && sed -i s#/usr/local/var/cache/owntone/cache.db#/config/owntone/cache/cache.db#g owntone.conf \
+ && sed -i s#/usr/local/var/log/owntone.log#/dev/stdout#g owntone.conf \
  && sed -i "/websocket_port\ =/ s/# *//" owntone.conf \
  && sed -i "/trusted_networks\ =/ s/# *//" owntone.conf \
  && sed -i "/pipe_autostart\ =/ s/# *//" owntone.conf \
