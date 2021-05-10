@@ -9,8 +9,8 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # hadolint ignore=DL3003
 RUN apk update 
 RUN apk add --no-cache \
- libcrypto1.1=1.1.1i-r0 \
- libssl1.1=1.1.1i-r0 
+ libcrypto1.1 \
+ libssl1.1 
 RUN apk add --no-cache \
  musl \
  musl-dev
