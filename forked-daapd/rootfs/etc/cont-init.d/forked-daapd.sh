@@ -11,7 +11,7 @@ fi
 
 if ! bashio::fs.file_exists '/config/forked-daapd/forked-daapd.conf'; then
     bashio::log.debug 'Copying default conf file...'
-    cp /usr/local/etc/forked-daapd.conf /config/forked-daapd/forked-daapd.conf
+    cp /usr/local/etc/owntone.conf /config/forked-daapd/forked-daapd.conf
 fi
 
 if ! bashio::fs.directory_exists '/config/forked-daapd/music'; then
