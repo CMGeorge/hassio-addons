@@ -7,4 +7,4 @@
 
 bashio::log.info 'Starting the forked-daapd Server...'
 # Run forked-daapd
-forked-daapd -f -c /config/forked-daapd/forked-daapd.conf -P /var/run/forked-daapd.pid
+owntone -f -c /config/forked-daapd/forked-daapd.conf -P /var/run/forked-daapd.pid
