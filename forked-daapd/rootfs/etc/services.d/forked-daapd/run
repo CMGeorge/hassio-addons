@@ -7,4 +7,4 @@
 
 bashio::log.info 'Starting the owntone Server...'
 # Run owntone
-owntone -f -c /config/owntone/forked-daapd.conf -P /var/run/owntone.pid
+owntone -f -c /config/owntone/owntone.conf -P /var/run/owntone.pid
