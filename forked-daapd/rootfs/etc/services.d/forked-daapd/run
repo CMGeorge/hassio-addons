@@ -6,6 +6,12 @@
 # shellcheck disable=SC1091
 
 bashio::log.info 'Starting necessary services...'
+rm -rf /var/run
+mkdir -p /var/run/dbus
+dbus-uuidgen --ensure
+sleep 1
+dbus-daemon --system
+
 avahi-daemon --daemonize --no-chroot
 bashio::log.info 'Starting the owntone Server...'
 # Run owntone
