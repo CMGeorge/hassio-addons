@@ -94,7 +94,7 @@ RUN cd /tmp && \
 
 RUN cd /tmp && \
     git clone https://github.com/owntone/owntone-server.git && \
-    cd /tmp/owntone && \
+    cd /tmp/owntone-server && \
     autoreconf -fi && \
     ./configure \
       --enable-itunes \
