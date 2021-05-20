@@ -15,4 +15,4 @@ dbus-daemon --system
 avahi-daemon --daemonize --no-chroot
 bashio::log.info 'Starting the owntone Server...'
 # Run owntone
-owntone -f -c /config/owntone/owntone.conf -P /var/run/forked-daapd.pid
+owntone -f -c /config/owntone/owntone.conf -P /var/run/owntone.pid

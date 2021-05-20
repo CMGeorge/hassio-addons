@@ -1,7 +1,7 @@
 #!/usr/bin/with-contenv bashio
 # ==============================================================================
-# JPD Hass.io Add-ons: forked-daapd server
-# Configures the forked-daapd Server
+# JPD Hass.io Add-ons: owntone server
+# Configures the owntone Server
 # ==============================================================================
 
 if ! bashio::fs.directory_exists '/config/owntone/cache'; then

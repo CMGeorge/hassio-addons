@@ -93,8 +93,8 @@ RUN cd /tmp && \
     make install 
 
 RUN cd /tmp && \
-    git clone https://github.com/ejurgensen/forked-daapd.git && \
-    cd /tmp/forked-daapd && \
+    git clone https://github.com/owntone/owntone-server.git && \
+    cd /tmp/owntone && \
     autoreconf -fi && \
     ./configure \
       --enable-itunes \
@@ -131,18 +131,18 @@ ARG BUILD_VERSION
 
 # Labels
 LABEL \
-    io.hass.name="Forked-daapd Server" \
-    io.hass.description="The forked-daapd server program" \
+    io.hass.name="Owntone Server" \
+    io.hass.description="The owntone server program" \
     io.hass.arch="${BUILD_ARCH}" \
     io.hass.type="addon" \
     io.hass.version=${BUILD_VERSION} \
     maintainer="John Dowling <john.patrick.dowling@gmail.com>" \
-    org.label-schema.description="The forked-daapd server program" \
+    org.label-schema.description="The owntone server program" \
     org.label-schema.build-date=${BUILD_DATE} \
-    org.label-schema.name="Forked-daapd Server" \
+    org.label-schema.name="owntone Server" \
     org.label-schema.schema-version="1.0" \
     org.label-schema.url="" \
-    org.label-schema.usage="https://github.com/johnpdowling/hassio-addons/tree/master/forked-daapd/README.md" \
+    org.label-schema.usage="https://github.com/johnpdowling/hassio-addons/tree/master/owntone/README.md" \
     org.label-schema.vcs-ref=${BUILD_REF} \
-    org.label-schema.vcs-url="https://github.com/johnpdowling/hassio-addons/forked-daapd" \
+    org.label-schema.vcs-url="https://github.com/johnpdowling/hassio-addons/owntone" \
     org.label-schema.vendor="JPD Hass.io Add-ons"
