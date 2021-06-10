@@ -9,8 +9,8 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # hadolint ignore=DL3003
 RUN apk update 
 RUN apk add --no-cache \
- libcrypto1.1=1.1.1i-r0 \
- libssl1.1=1.1.1i-r0 
+ libcrypto1.1 \
+ libssl1.1 
 RUN apk add --no-cache \
  musl \
  musl-dev
@@ -93,8 +93,8 @@ RUN cd /tmp && \
     make install 
 
 RUN cd /tmp && \
-    git clone https://github.com/ejurgensen/forked-daapd.git && \
-    cd /tmp/forked-daapd && \
+    git clone https://github.com/owntone/owntone-server.git && \
+    cd /tmp/owntone-server && \
     autoreconf -fi && \
     ./configure \
       --enable-itunes \
@@ -106,17 +106,17 @@ RUN apk del --purge deps1 deps2 && \
     rm -rf /usr/local/bin/antlr3 /tmp/* 
 
 RUN cd /usr/local/etc \
- && sed -i -e 's/\(uid.*=.*\)/uid = "root"/g' forked-daapd.conf \
- && sed -i s#"ipv6 = yes"#"ipv6 = no"#g forked-daapd.conf \
- && sed -i s#/srv/music#/config/forked-daapd/music#g forked-daapd.conf \
- && sed -i s#/usr/local/var/cache/forked-daapd/songs3.db#/config/forked-daapd/cache/songs3.db#g forked-daapd.conf \
- && sed -i s#/usr/local/var/cache/forked-daapd/cache.db#/config/forked-daapd/cache/cache.db#g forked-daapd.conf \
- && sed -i s#/usr/local/var/log/forked-daapd.log#/dev/stdout#g forked-daapd.conf \
- && sed -i "/websocket_port\ =/ s/# *//" forked-daapd.conf \
- && sed -i "/trusted_networks\ =/ s/# *//" forked-daapd.conf \
- && sed -i "/pipe_autostart\ =/ s/# *//" forked-daapd.conf \
- && sed -i "/db_path\ =/ s/# *//" forked-daapd.conf \
- && sed -i "/cache_path\ =/ s/# *//" forked-daapd.conf
+ && sed -i -e 's/\(uid.*=.*\)/uid = "root"/g' owntone.conf \
+ && sed -i s#"ipv6 = yes"#"ipv6 = no"#g owntone.conf \
+ && sed -i s#/srv/music#/config/owntone/music#g owntone.conf \
+ && sed -i s#/usr/local/var/cache/owntone/songs3.db#/config/owntone/cache/songs3.db#g owntone.conf \
+ && sed -i s#/usr/local/var/cache/owntone/cache.db#/config/owntone/cache/cache.db#g owntone.conf \
+ && sed -i s#/usr/local/var/log/owntone.log#/dev/stdout#g owntone.conf \
+ && sed -i "/websocket_port\ =/ s/# *//" owntone.conf \
+ && sed -i "/trusted_networks\ =/ s/# *//" owntone.conf \
+ && sed -i "/pipe_autostart\ =/ s/# *//" owntone.conf \
+ && sed -i "/db_path\ =/ s/# *//" owntone.conf \
+ && sed -i "/cache_path\ =/ s/# *//" owntone.conf
 
 VOLUME /etc/localtime /etc/localtime:ro
 
@@ -131,18 +131,18 @@ ARG BUILD_VERSION
 
 # Labels
 LABEL \
-    io.hass.name="Forked-daapd Server" \
-    io.hass.description="The forked-daapd server program" \
+    io.hass.name="Owntone Server" \
+    io.hass.description="The owntone server program" \
     io.hass.arch="${BUILD_ARCH}" \
     io.hass.type="addon" \
     io.hass.version=${BUILD_VERSION} \
     maintainer="John Dowling <john.patrick.dowling@gmail.com>" \
-    org.label-schema.description="The forked-daapd server program" \
+    org.label-schema.description="The owntone server program" \
     org.label-schema.build-date=${BUILD_DATE} \
-    org.label-schema.name="Forked-daapd Server" \
+    org.label-schema.name="owntone Server" \
     org.label-schema.schema-version="1.0" \
     org.label-schema.url="" \
-    org.label-schema.usage="https://github.com/johnpdowling/hassio-addons/tree/master/forked-daapd/README.md" \
+    org.label-schema.usage="https://github.com/johnpdowling/hassio-addons/tree/master/owntone/README.md" \
     org.label-schema.vcs-ref=${BUILD_REF} \
-    org.label-schema.vcs-url="https://github.com/johnpdowling/hassio-addons/forked-daapd" \
+    org.label-schema.vcs-url="https://github.com/johnpdowling/hassio-addons/owntone" \
     org.label-schema.vendor="JPD Hass.io Add-ons"
